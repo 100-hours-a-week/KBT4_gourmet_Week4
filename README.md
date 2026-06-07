@@ -175,11 +175,104 @@ Response
 
 ```json
 {
-  "id": 1,
   "email": "yhpark@naver.com",
-  "nickname": "gourmet"
+  "nickname": "gourmet",
+  "id": 1
 }
 ```
+
+---
+
+### 로그인
+
+```http
+POST /users/login
+```
+
+Request Body
+
+```json
+{
+  "email": "yhpark@naver.com",
+  "password": "gourmet1234"
+}
+```
+
+Response
+
+```json
+{
+  "email": "yhpark@naver.com",
+  "nickname": "gourmet",
+  "id": 1
+}
+```
+
+---
+
+### 회원 전체 조회
+
+```http
+GET /users
+```
+
+Response
+
+```json
+[
+  {
+    "email": "yhpark@naver.com",
+    "nickname": "gourmet",
+    "id": 1
+  }
+]
+```
+
+---
+
+### 회원 단건 조회
+
+```http
+GET /users/1
+```
+
+Response
+
+```json
+{
+  "email": "yhpark@naver.com",
+  "nickname": "gourmet",
+  "id": 1
+}
+```
+
+---
+
+### 회원 수정
+
+```http
+PATCH /users/1
+```
+
+Request Body
+
+```json
+{
+  "nickname": "gourmet-update"
+}
+```
+
+Response
+
+```json
+{
+  "email": "yhpark@naver.com",
+  "nickname": "gourmet-update",
+  "id": 1
+}
+```
+
+---
 
 ### 게시글 생성
 
@@ -200,12 +293,82 @@ Response
 
 ```json
 {
+  "content": "DB 없이 MemoryStore로 작성한 게시글입니다.",
   "id": 1,
-  "userId": 1,
   "title": "첫 번째 게시글",
-  "content": "DB 없이 MemoryStore로 작성한 게시글입니다."
+  "userId": 1
 }
 ```
+
+---
+
+### 게시글 목록 조회
+
+```http
+GET /posts?page=0&size=10
+```
+
+Response
+
+```json
+[
+  {
+    "content": "DB 없이 MemoryStore로 작성한 게시글입니다.",
+    "id": 1,
+    "title": "첫 번째 게시글",
+    "userId": 1
+  }
+]
+```
+
+---
+
+### 게시글 단건 조회
+
+```http
+GET /posts/1
+```
+
+Response
+
+```json
+{
+  "content": "DB 없이 MemoryStore로 작성한 게시글입니다.",
+  "id": 1,
+  "title": "첫 번째 게시글",
+  "userId": 1
+}
+```
+
+---
+
+### 게시글 수정
+
+```http
+PATCH /posts/1
+```
+
+Request Body
+
+```json
+{
+  "title": "수정된 게시글 제목",
+  "content": "수정된 게시글 내용입니다."
+}
+```
+
+Response
+
+```json
+{
+  "content": "수정된 게시글 내용입니다.",
+  "id": 1,
+  "title": "수정된 게시글 제목",
+  "userId": 1
+}
+```
+
+---
 
 ### 댓글 생성
 
@@ -225,9 +388,98 @@ Response
 
 ```json
 {
+  "content": "첫 번째 댓글입니다.",
   "id": 1,
   "postId": 1,
-  "userId": 1,
-  "content": "첫 번째 댓글입니다."
+  "userId": 1
 }
 ```
+
+---
+
+### 댓글 단건 조회
+
+```http
+GET /posts/1/comments/1
+```
+
+Response
+
+```json
+{
+  "content": "첫 번째 댓글입니다.",
+  "id": 1,
+  "postId": 1,
+  "userId": 1
+}
+```
+
+---
+
+### 댓글 수정
+
+```http
+PATCH /posts/1/comments/1
+```
+
+Request Body
+
+```json
+{
+  "content": "수정된 댓글입니다."
+}
+```
+
+Response
+
+```json
+{
+  "content": "수정된 댓글입니다.",
+  "id": 1,
+  "postId": 1,
+  "userId": 1
+}
+```
+
+---
+
+### 댓글 삭제
+
+```http
+DELETE /posts/1/comments/1
+```
+
+Response
+
+```text
+204 No Content
+```
+
+---
+
+### 게시글 삭제
+
+```http
+DELETE /posts/1
+```
+
+Response
+
+```text
+204 No Content
+```
+
+---
+
+### 회원 삭제
+
+```http
+DELETE /users/1
+```
+
+Response
+
+```text
+204 No Content
+```
+
