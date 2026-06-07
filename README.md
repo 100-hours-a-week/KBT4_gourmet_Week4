@@ -352,8 +352,8 @@ Request Body
 
 ```json
 {
-  "title": "수정된 게시글 제목",
-  "content": "수정된 게시글 내용입니다."
+  "title": "골멧이 수정한 게시글 제목",
+  "content": "골멧이 수정한 게시글 내용입니다."
 }
 ```
 
@@ -361,9 +361,9 @@ Response
 
 ```json
 {
-  "content": "수정된 게시글 내용입니다.",
+  "content": "골멧이 수정한 게시글 내용입니다.",
   "id": 1,
-  "title": "수정된 게시글 제목",
+  "title": "골멧이 수정한 게시글 제목",
   "userId": 1
 }
 ```
@@ -426,7 +426,7 @@ Request Body
 
 ```json
 {
-  "content": "수정된 댓글입니다."
+  "content": "골멧 화이팅!!!"
 }
 ```
 
@@ -434,7 +434,7 @@ Response
 
 ```json
 {
-  "content": "수정된 댓글입니다.",
+  "content": "골멧 화이팅!!!",
   "id": 1,
   "postId": 1,
   "userId": 1
